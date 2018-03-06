@@ -1,14 +1,14 @@
 version: '3'
 services:
-  nginx:
-    image: nginx
+  web:
+    build: ./nginx
     container_name: "web"
     volumes:
       - ./www:/var/www
     ports:
       - "8080:80"
 
-  php:
+  app:
     build: ./php
     container_name: "app"
 
