@@ -7,7 +7,7 @@ services:
       - app
     volumes:
       - ./www:/var/www
-      - ./nginx/server.conf:/etc/nginx/conf.d/server.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - "8080:80"
 
