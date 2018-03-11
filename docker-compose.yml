@@ -9,7 +9,7 @@ services:
       - ./www:/var/www
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
-      - "8080:80"
+      - "80:80"
 
   app:
     image: php:7-fpm-alpine
