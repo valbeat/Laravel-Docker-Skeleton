@@ -21,7 +21,10 @@ services:
     image: mysql:5.7.20
     container_name: "db"
     volumes:
-      - ./mysql:/var/lib/mysql
+      - db-data:/var/lib/mysql
     env_file: .env
     ports:
       - "3306:3306"
+
+volumes:
+  db-data:
