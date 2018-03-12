@@ -17,9 +17,8 @@ services:
     volumes:
       - ./www/html:/var/www/html
 
-  mysql:
-    restart: always
-    image: mysql:latest
+  db:
+    image: mysql:5.7.23
     container_name: "db"
     volumes:
       - ./mysql:/var/lib/mysql
