@@ -22,6 +22,7 @@ services:
     container_name: "db"
     volumes:
       - db-data:/var/lib/mysql
+      - ./db/common.ddl:/docker-entrypoint-initdb.d/common.ddl
     env_file: .env
     ports:
       - "3306:3306"
