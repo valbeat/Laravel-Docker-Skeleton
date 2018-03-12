@@ -22,8 +22,6 @@ services:
     container_name: "db"
     volumes:
       - ./mysql:/var/lib/mysql
-    environment:
-      - "MYSQL_ROOT_PASSWORD=password"
-      - "MYSQL_DATABASE=skelton"
+    env_file: .env
     ports:
       - "3306:3306"
