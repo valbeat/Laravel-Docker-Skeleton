@@ -18,7 +18,7 @@ services:
       - ./www/html:/var/www/html
 
   db:
-    image: mysql:5.7.23
+    image: mysql:5.7.20
     container_name: "db"
     volumes:
       - ./mysql:/var/lib/mysql
