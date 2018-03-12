@@ -20,6 +20,7 @@ services:
   mysql:
     restart: always
     image: mysql:latest
+    container_name: "db"
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
