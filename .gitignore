@@ -17,5 +17,5 @@ storage/
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 
-# MySQL enviroment
+# MySQL environment
 .env
