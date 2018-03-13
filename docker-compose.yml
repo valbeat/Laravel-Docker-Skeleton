@@ -2,7 +2,7 @@ version: '3'
 services:
   web:
     image: nginx:1.13.5-alpine
-    container_name: "web"
+    container_name: web
     depends_on:
       - app
     volumes:
@@ -12,18 +12,23 @@ services:
       - "80:80"
 
   app:
-    image: php:7-fpm-alpine
-    container_name: "app"
+    build: ./app
+    container_name: app
+    env_file: .env
+    environment:
+      DATABASE_HOST: db
+    depends_on:
+      - db
     volumes:
       - ./www/html:/var/www/html
 
   db:
-    image: mysql:5.7.20
-    container_name: "db"
+    image: mysql:5.7.19
+    container_name: db
+    env_file: .env
     volumes:
       - db-data:/var/lib/mysql
-      - ./db/common.ddl:/docker-entrypoint-initdb.d/common.ddl
-    env_file: .env
+      - ./db/entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
 
