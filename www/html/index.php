@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>NGINX + PHP + MySQL TEST</title>
-    <link rel="stylesheet" href="/main.css">
 </head>
 <body>
     <div class="container">
