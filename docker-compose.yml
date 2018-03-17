@@ -33,5 +33,9 @@ services:
     ports:
       - "3306:3306"
 
+  kvs:
+    image: redis:alpine
+    container_name: kvs
+
 volumes:
   db-data:
