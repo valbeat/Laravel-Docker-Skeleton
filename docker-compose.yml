@@ -13,7 +13,7 @@ services:
       - "443:443"
 
   app:
-    build: ./app
+    build: ./php-fpm
     container_name: app
     env_file: .env
     environment:
@@ -29,7 +29,7 @@ services:
     env_file: .env
     volumes:
       - db-data:/var/lib/mysql
-      - ./db/entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./mysql/entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
 
