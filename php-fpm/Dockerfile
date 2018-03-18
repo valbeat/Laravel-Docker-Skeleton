@@ -1,7 +1,7 @@
 FROM php:7.2-fpm-alpine
 
 RUN apk update \
- && apk add --no-cache \
+    && apk add --no-cache \
     zip \
     libpng \
     libpng-dev \
@@ -18,6 +18,7 @@ RUN docker-php-ext-install \
     mysqli \
     mbstring
 
-RUN curl -sS https://getcomposer.org/installer | php ;mv composer.phar /usr/local/bin/composer;
-RUN composer global require hirak/prestissimo
-RUN composer global require phpunit/phpunit
+RUN curl -sS https://getcomposer.org/installer \
+    | php ;mv composer.phar /usr/local/bin/composer \
+    && composer global require hirak/prestissimo \
+    && composer global require phpunit/phpunit
