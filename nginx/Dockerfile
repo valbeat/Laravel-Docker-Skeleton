@@ -1,8 +1,8 @@
 FROM nginx:1.13.5-alpine
 
 # ルートディレクトリ作成
-RUN mkdir -p /var/www/html \
-&& chmod 755 -R /var/www/html
+RUN mkdir -p /var/www/public \
+&& chmod 755 -R /var/www/public
 
 # SSL自己証明書の作成
 RUN apk --update add openssl \
