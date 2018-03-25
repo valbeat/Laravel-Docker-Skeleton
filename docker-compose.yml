@@ -20,7 +20,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./public:/var/www/public
+      - ../:/var/www/
 
   db:
     container_name: ${PROJECT_NAME}_db
