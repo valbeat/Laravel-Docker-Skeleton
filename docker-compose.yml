@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    container_name: ${PROJECT_NAME}_web
+    container_name: ${APP_NAME}_web
     build: ./nginx
     depends_on:
       - php-fpm
@@ -12,7 +12,7 @@ services:
       - "443:443"
 
   php-fpm:
-    container_name: ${PROJECT_NAME}_php-fpm
+    container_name: ${APP_NAME}_php-fpm
     build: ./php-fpm
     env_file: .env
     environment:
@@ -23,7 +23,7 @@ services:
       - ../:/var/www/
 
   db:
-    container_name: ${PROJECT_NAME}_db
+    container_name: ${APP_NAME}_db
     image: mysql:5.7.19
     env_file: .env
     volumes:
@@ -33,7 +33,7 @@ services:
       - "3306:3306"
 
   kvs:
-    container_name: ${PROJECT_NAME}_kvs
+    container_name: ${APP_NAME}_kvs
     image: redis:alpine
 
 volumes:
