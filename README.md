@@ -1,5 +1,9 @@
-Docker Laravel Skelton
+PHP-Nginx-Docker-Compose
 ===
+
+```
+cp env-example .env
+```
 
 build container
 ```
@@ -8,11 +12,3 @@ $ docker-compose up -d
 $ docker-compose ps
 $ docker-compose exec app php -v
 ```
-
-access app
-```
-$ docker-machine ip
-```
-
-
-
