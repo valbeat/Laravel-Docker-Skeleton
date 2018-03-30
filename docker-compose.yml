@@ -14,20 +14,23 @@ services:
   php-fpm:
     container_name: ${APP_NAME}_php-fpm
     build: ./php-fpm
+    depends_on:
+      - mysql
     env_file: .env
     environment:
       DATABASE_HOST: mysql
-    depends_on:
-      - mysql
     volumes:
       - ../:/var/www/
 
   mysql:
     container_name: ${APP_NAME}_mysql
-    image: mysql:5.7.19
-    env_file: .env
+    image: mysql:5.7.21
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
-      - db-data:/var/lib/mysql
       - ./mysql/entrypoint-initdb.d:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
@@ -35,6 +38,3 @@ services:
   redis:
     container_name: ${APP_NAME}_redis
     image: redis:alpine
-
-volumes:
-  db-data:
