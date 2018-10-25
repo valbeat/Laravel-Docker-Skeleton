@@ -10,5 +10,5 @@ build container
 $ docker-compose build
 $ docker-compose up -d
 $ docker-compose ps
-$ docker-compose exec app php -v
+$ docker-compose exec app php-fpm -v
 ```
